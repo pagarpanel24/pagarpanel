@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?path=$1"
+      "dest": "https://script.google.com/macros/s/AKfycbzJqbUtTRV6r0OxfJQTWnYejo7BMX9d1k1rezXbWow4sHMoMWWvadEwunv9T8TA4HO-/exec?path=$1"
     }
   ]
 }
