@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Saisee News</title>
+    <title>PagarPanel.co.id</title>
     <style>
         body, html {
             margin: 0;
@@ -12,57 +12,13 @@
             overflow: hidden;
         }
         iframe {
-            border: none;
             width: 100%;
-            height: 100vh;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <iframe id="content-frame" src="https://script.google.com/macros/s/AKfycbzJqbUtTRV6r0OxfJQTWnYejo7BMX9d1k1rezXbWow4sHMoMWWvadEwunv9T8TA4HO-/exec" frameborder="0"></iframe>
-    <script>
-        // Menangani navigasi di dalam iframe
-        window.addEventListener('message', function(event) {
-            if (event.data.type === 'navigation') {
-                history.pushState(null, '', event.data.url);
-                console.log('Navigation event received:', event.data.url);
-            }
-        }, false);
-
-        function handleNavigation() {
-  var path = window.location.pathname;
-  document.getElementById('content-frame').contentWindow.postMessage({
-    type: 'urlChange',
-    url: path
-  }, '*');
-}
-
-window.addEventListener('popstate', handleNavigation);
-
-// Panggil handleNavigation saat halaman dimuat
-window.addEventListener('load', handleNavigation);
-
-        // Menangani navigasi browser
-        window.addEventListener('popstate', function() {
-            const newPath = window.location.pathname;
-            console.log('Popstate event, new path:', newPath);
-            document.getElementById('content-frame').contentWindow.postMessage({
-                type: 'urlChange',
-                url: newPath
-            }, '*');
-        });
-
-        // Menangani load awal
-        window.addEventListener('load', function() {
-            const initialPath = window.location.pathname;
-            console.log('Initial load, path:', initialPath);
-            if (initialPath !== '/') {
-                document.getElementById('content-frame').contentWindow.postMessage({
-                    type: 'urlChange',
-                    url: initialPath
-                }, '*');
-            }
-        });
-    </script>
+    <iframe src="https://script.google.com/macros/s/AKfycbzJqbUtTRV6r0OxfJQTWnYejo7BMX9d1k1rezXbWow4sHMoMWWvadEwunv9T8TA4HO-/exec" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
