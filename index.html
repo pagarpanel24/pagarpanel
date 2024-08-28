@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PagarPanel.co.id</title>
+    <title>PagarPanel</title>
     <style>
         body, html {
             margin: 0;
@@ -19,6 +19,21 @@
     </style>
 </head>
 <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbzJqbUtTRV6r0OxfJQTWnYejo7BMX9d1k1rezXbWow4sHMoMWWvadEwunv9T8TA4HO-/exec" frameborder="0" allowfullscreen></iframe>
+    <iframe id="app-frame" src="https://script.google.com/macros/s/AKfycbzJqbUtTRV6r0OxfJQTWnYejo7BMX9d1k1rezXbWow4sHMoMWWvadEwunv9T8TA4HO-/exec" frameborder="0" allowfullscreen></iframe>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'setUrl') {
+                history.pushState(null, '', event.data.url);
+            }
+        });
+
+        window.addEventListener('popstate', function() {
+            var newUrl = window.location.pathname + window.location.search;
+            document.getElementById('app-frame').contentWindow.postMessage({
+                type: 'urlChanged',
+                url: newUrl
+            }, '*');
+        });
+    </script>
 </body>
 </html>
